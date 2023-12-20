@@ -1,18 +1,22 @@
 {
   "name": "strapi-plugin-validate-relations",
   "version": "1.0.0",
-  "description": "Validate if a relation is PUBLISHED when publishing an entry or updating a PUBLISHED entry.",
+  "description": "Validate if a relation is PUBLISHED when publishing an entry or updating a PUBLISHED entry since v4.",
   "strapi": {
     "name": "strapi-plugin-validate-relations",
-    "description": "Validate if a relation is PUBLISHED when publishing an entry or updating a PUBLISHED entry.",
+    "description": "Validate if a relation is PUBLISHED when publishing an entry or updating a PUBLISHED entry since v4.",
     "kind": "plugin",
     "displayName": "Strapi Plugin Validate Relations"
   },
   "dependencies": {
     "lodash": "^4.17.21"
   },
+  "peerDependencies": {
+    "@strapi/strapi": "^4.7.1"
+  },
   "author": {
-    "name": "Michelle Zhang"
+    "name": "Michelle Zhang",
+    "email": "michelle.chsy@gmail.com"
   },
   "maintainers": [
     {
@@ -21,7 +25,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/michellechsy/strapi-plugin-validate-relations"
   },
   "engines": {
     "node": ">=14.19.1 <=18.x.x",
