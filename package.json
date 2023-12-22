@@ -1,6 +1,6 @@
 {
   "name": "strapi-plugin-validate-relations",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Validate if a relation is PUBLISHED when publishing an entry or updating a PUBLISHED entry since v4.",
   "strapi": {
     "name": "strapi-plugin-validate-relations",
