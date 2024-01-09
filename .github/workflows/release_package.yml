@@ -1,0 +1,48 @@
+name: Release package
+on:
+  push:
+    branches: [main]
+  # release:
+  #   types: [created]
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          registry-url: https://registry.npmjs.org/
+          node-version: '16'
+          cache: npm
+      - name: Publish
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPMJS_ACCESS_TOKEN }}
+      - name: Publish Succcessfully
+        run: echo "npm published successfully."
+
+  release:
+    needs: publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: 读取当前版本号
+        id: version
+        uses: ashley-taylor/read-json-property-action@v1.0
+        with:
+          path: ./package.json
+          property: version
+
+      - name: 创建GitHub Release
+        id: create_release
+        uses: actions/create-release@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{steps.version.outputs.value}}
+          release_name: v${{steps.version.outputs.value}}
+          draft: false
+          prerelease: false
+
+        
