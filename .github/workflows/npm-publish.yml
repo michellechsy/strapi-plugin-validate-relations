@@ -8,26 +8,23 @@ on:
     types: [created]
 
 jobs:
-  build:
+  CI:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
         with:
           node-version: 16
-      - run: npm ci
-      - run: npm test
-
-  publish-npm:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-          registry-url: https://registry.npmjs.org/
-      - run: npm ci
-      - run: npm publish --access public
+          registry-url: 'https://npm.pkg.github.com'
+          # Defaults to the user or organization that owns the workflow file
+          scope: '@michellechsy'
+      - name: Install packages
+        run: npm ci
+      - name: Unit Tests
+        run: npm test
+      - name: Publish NPM Package
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
