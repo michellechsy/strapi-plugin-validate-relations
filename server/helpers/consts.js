@@ -5,7 +5,7 @@ const Actions = {
 }
 
 const pluginName = require('../../package.json').strapi.name
-const errorMsg = 'There\'s DRAFT relation inside the data, please ensure they are PUBLISHED before publishing'
+const errorMsg = 'There\'re DRAFT relations inside the data, please ensure they are PUBLISHED before publishing'
 
 module.exports = {
   Actions,

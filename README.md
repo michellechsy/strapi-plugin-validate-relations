@@ -27,3 +27,11 @@ module.exports = ({ env }) => ({
   },
 });
 ```
+
+## Sample Validation Results
+1. Publishing without required relation
+![validation failure](public/images/validation%20failure.png)
+2. Publishing with a DRAFT relation
+![draft relation](public/images/draft%20relation%20not%20allowed.png)
+3. Publishing with a published relation successfully
+![successfully published](public/images/publish%20successfully.png)
