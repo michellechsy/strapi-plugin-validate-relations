@@ -16,7 +16,6 @@ The populate depth is calculated by strapi built-in capability (i.e. WYSIWYG). D
 Currently the plugin will throw the validation error immediately when a DRAFT relation is found.
 
 # Configuration
-## Example configuration
 
 `config/plugins.js`
 
